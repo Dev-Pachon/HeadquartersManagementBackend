@@ -1,0 +1,574 @@
+{
+	"info": {
+		"_postman_id": "6b62612f-4993-499f-8a23-1a8100291660",
+		"name": "Taller FrontEnd PWA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18427673"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Edit user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstname\": \"dev\",\n    \"lastname\": \"pachon\",\n    \"password\":\"123456\",\n    \"headquarter\": [\"644f5bc7cde496bb79bc4ca3\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/644f3986e4c53ead5d8fb116",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"644f3986e4c53ead5d8fb116"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ0ZjI4YTYwZTdkM2VjZmQ2ODc1ODJjIiwiZW1haWwiOiJkZXZwYWNob25Ab3V0bG9vay5jb20iLCJpYXQiOjE2ODI5MTE1MDgsImV4cCI6MTY4MjkxODcwOH0.YgiCAxzBPegLpaIW522xgxTD7otDEB2wCNZGmkY-zbQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "firstname",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "lastname",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "headquarter",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get users by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/users/644f28a60e7d3ecfd687582c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"644f28a60e7d3ecfd687582c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/users/644f5bc7cde496bb79bc4ca3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"644f5bc7cde496bb79bc4ca3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var options = {",
+							"  method: 'POST',",
+							"  url: 'http://localhost:3000/api/auth',",
+							"  header: {",
+							"    'Content-Type': 'application/json',",
+							"    'X-Foo': 'bar'",
+							"  },",
+							"  body: {",
+							"    mode: 'raw',",
+							"    raw: JSON.stringify({",
+							"    \"email\": \"devpachon@outlook.com\",",
+							"    \"password\": \"123456\"",
+							"    })",
+							"  }",
+							"};",
+							"",
+							"pm.sendRequest(options, function (err, response) {",
+							"    pm.collectionVariables.set(\"token\", response.json().token);",
+							"});"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Headquarters",
+			"item": [
+				{
+					"name": "Create headquarter",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"tesst2\",\n    \"contact\": {\n        \"name\": \"asd\",\n        \"phone\": \"asd\",\n        \"email\": \"asd@asd.com\"\n    },\n    \"location\": {\n        \"city\": \"asd\",\n        \"address\": \"asd\",\n        \"zipcode\": \"asd\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/headquarters",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"headquarters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit headquarter",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"contact\": {\n        \"name\": \"asd1\",\n        \"phone\": \"asd1\",\n        \"email\": \"asd1@asd.com\"\n    },\n    \"location\": {\n        \"city\": \"asd\",\n        \"address\": \"asd\",\n        \"zipcode\": \"asd\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/headquarters/644f657d2b0f3ebeae52ea3b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"headquarters",
+								"644f657d2b0f3ebeae52ea3b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get headquarter",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ0ZjI4YTYwZTdkM2VjZmQ2ODc1ODJjIiwiZW1haWwiOiJkZXZwYWNob25Ab3V0bG9vay5jb20iLCJpYXQiOjE2ODI5MTE1MDgsImV4cCI6MTY4MjkxODcwOH0.YgiCAxzBPegLpaIW522xgxTD7otDEB2wCNZGmkY-zbQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "firstname",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "lastname",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "headquarter",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get headquarter by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/headquarters/644f657d2b0f3ebeae52ea3b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"headquarters",
+								"644f657d2b0f3ebeae52ea3b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete headquarter",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/headquarters/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"headquarters",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var options = {",
+							"  method: 'POST',",
+							"  url: 'http://localhost:3000/api/auth',",
+							"  header: {",
+							"    'Content-Type': 'application/json',",
+							"    'X-Foo': 'bar'",
+							"  },",
+							"  body: {",
+							"    mode: 'raw',",
+							"    raw: JSON.stringify({",
+							"    \"email\": \"devpachon@outlook.com\",",
+							"    \"password\": \"123456\"",
+							"    })",
+							"  }",
+							"};",
+							"",
+							"pm.sendRequest(options, function (err, response) {",
+							"    pm.collectionVariables.set(\"token\", response.json().token);",
+							"});"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"devpachon@outlook.com\",\n    \"password\":\"123456\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstname\": \"da\",\n    \"lastname\": \"hp\",\n    \"email\": \"devpachon2@outlook.com\",\n    \"password\":\"123456\",\n    \"headquarter\":[\"644f5b9bcde496bb79bc4c9f\"],\n    \"active\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ0ZjViYzdjZGU0OTZiYjc5YmM0Y2EzIiwiZW1haWwiOiJkZXZwYWNob24zQG91dGxvb2suY29tIiwiaWF0IjoxNjgyOTIyNTAzLCJleHAiOjE2ODI5Mjk3MDN9.qjEsAvaUCgGtZh1MNMjHE5emJQYjPikhnkCYvoHR2Mo",
+			"type": "string"
+		}
+	]
+}
