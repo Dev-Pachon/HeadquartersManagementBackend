@@ -32,24 +32,27 @@ export const createHeadquarterSchema = object({
 export const updateHeadquarterSchema = object({
     contact: object({
         name: string({
-            required_error: "Contact name is required",
+            required_error: "Name is required",
         }),
         phone: string({
-            required_error: "Contact phone is required",
+            required_error: "Phone is required",
         }),
         email: string({
-            required_error: "Contact email is required",
+            required_error: "Email is required",
         }).email("Not a valid email address")
     }),
     location: object({
         city: string({
-            required_error: "Location city is required",
+            required_error: "city is required",
         }),
         address: string({
-            required_error: "Location address is required",
+            required_error: "address is required",
         }),
         zipcode: string({
-            required_error: "Location zipcode is required",
+            required_error: "zipcode is required",
         })
+    }),
+    name: string({
+        required_error: "Name is required",
     })
 }).strict()
