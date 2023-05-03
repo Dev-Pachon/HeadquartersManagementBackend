@@ -13,7 +13,7 @@ export const createUserSchema = object({
     password: string({
         required_error: "Password is required",
     }).min(6, "Password too short"),
-    headquarter: array(string()).nonempty(),
+    headquarter: array(string()).nonempty("Must have at least 1 headquarter"),
     valid_until: string().optional(),
     active: boolean().optional()
 }).strict()
@@ -27,7 +27,7 @@ export const updateUserSchema = object({
     }),
     password: string({
         required_error: "Password is required",
-    }).min(6, "Password too short"),
-    headquarter: array(string()).nonempty(),
+    }).min(6, "Password too short").optional(),
+    headquarter: array(string()).nonempty().optional(),
     valid_until: string().optional(),
 }).strict()

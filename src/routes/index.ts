@@ -19,7 +19,7 @@ function  routes(app: Express) {
     app.post("/api/users",  validateSchema(createUserSchema), UserController.createUserHandler);
 
     app.get("/api/headquarters/:id",verifyToken, HeadquarterController.getHeadquarter);
-    app.get("/api/headquarters",verifyToken, HeadquarterController.getHeadquarters);
+    app.get("/api/headquarters", HeadquarterController.getHeadquarters);
     app.delete("/api/headquarters/:id", verifyToken,  HeadquarterController.deleteHeadquarter);
     app.put("/api/headquarters/:id", verifyToken, validateSchema(updateHeadquarterSchema),  HeadquarterController.updateHeadquarterHandler);
     app.post("/api/headquarters",  verifyToken,validateSchema(createHeadquarterSchema), HeadquarterController.createHeadquarterHandler);

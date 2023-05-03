@@ -1,8 +1,4 @@
 import {Request, Response} from "express";
-import {UserDocument} from "../models/user.model";
-import userService from "../services/user.service";
-import bcrypt from "bcrypt";
-import jwt, {Secret} from "jsonwebtoken";
 import HttpStatus from "http-status-codes";
 import AuthService from "../services/auth.service";
 
